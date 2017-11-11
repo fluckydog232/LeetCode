@@ -8,3 +8,4 @@ int maxProfit(int prices[], int n){
     }
     return result;
 }
+
