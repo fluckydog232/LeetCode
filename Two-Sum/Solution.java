@@ -1,7 +1,9 @@
 import java.util.*;
 public class Solution {
+ //returns int type arr constaining two elements that has a sum same as target
     public int[] twoSum(int[] numbers, int target) {
         int[] result = new int[2];
+        //record of int [] numbers
         int[] tmpArray = numbers.clone();
 
         Arrays.sort(tmpArray);
