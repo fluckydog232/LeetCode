@@ -10,6 +10,7 @@ public class Solution {
 
         int num1 = 0;
         int num2 = 0;
+     //set 2 cursors i,j to refer to elements in array.while increasing i and decreasing j search for pairs.
         for (int i = 0, j = numbers.length - 1, sum; i < j;) {
             sum = tmpArray[i] + tmpArray[j];
             if (sum == target) {
