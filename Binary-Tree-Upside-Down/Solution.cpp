@@ -8,7 +8,7 @@ struct TreeNode {
   TreeNode *right;
   TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
-
+// forming a tree with roots at bottom layer
 class Solution {
 public:
   TreeNode *upsideDownBinaryTree(TreeNode *root) {
