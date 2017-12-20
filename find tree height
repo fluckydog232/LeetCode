@@ -1,0 +1,16 @@
+; Tree -> N
+; measures the height of abt0
+(check-expect (height.v2 example) 3)
+(define (height.v2 abt0)
+  (local (; Tree N -> N
+          ; measures the height of abt
+          ; accumulator a is the number of steps 
+          ; it takes to reach abt from abt0
+          (define (height/a abt a)
+            (cond
+              [(empty? abt) a]
+              [else
+               (max
+                 (height/a (node-left abt)  (+ a 1))
+                 (height/a (node-right abt) (+ a 1)))])))
+    (height/a abt0 0)))
