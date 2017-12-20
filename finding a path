@@ -1,0 +1,23 @@
+; Node Node SimpleGraph -> Boolean
+; is there a path from origin to destination in sg
+ 
+(check-expect (path-exists? 'A 'E a-sg) #true)
+(check-expect (path-exists? 'A 'F a-sg) #false)
+ 
+(define (path-exists? origin destination sg)
+  (cond
+    [(symbol=? origin destination) #t]
+    [else (path-exists? (neighbor origin sg)
+                        destination
+                        sg)]))
+ 
+; Node SimpleGraph -> Node
+; determine the node that is connected to a-node in sg
+(check-expect (neighbor 'A a-sg) 'B)
+(check-error (neighbor 'G a-sg) "neighbor: not a node")
+(define (neighbor a-node sg)
+  (cond
+    [(empty? sg) (error "neighbor: not a node")]
+    [else (if (symbol=? (first (first sg)) a-node)
+              (second (first sg))
+              (neighbor a-node (rest sg)))]))
